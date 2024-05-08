@@ -4,7 +4,12 @@ import authService from '../services/auth.service'
 
 class AuthController{
     async register(req: Request, res: Response, next: NextFunction){
-       const user = await authService.register(req.body)
+        try {
+            await authService.register(req.body)
+            return res.status(201).json({message: "Пользователь зарегестрирован!"})
+        } catch(e) {
+            next(e)
+        }
     }
 }
 

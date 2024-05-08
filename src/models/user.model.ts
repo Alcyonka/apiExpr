@@ -5,10 +5,11 @@ export default class User extends Model {
     @PrimaryKey
     @AutoIncrement
     @Column(DataType.INTEGER)
-    id!: number
+    id!: number;
 
     @Column(DataType.STRING)
-    @AllowNull(false)
-    @Unique
-    email!: string
+    email!: string;
+
+    @Column(DataType.STRING)
+    password!: string;
 }
